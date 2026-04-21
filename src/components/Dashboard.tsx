@@ -40,6 +40,7 @@ const STRATEGY_VIEWS: { id: StrategyView; label: string }[] = [
   { id: 'london-orb-v3', label: 'London ORB v3' },
   { id: 'asian-orb',     label: 'Asian ORB' },
   { id: 'ttm-squeeze',   label: 'TTM Squeeze' },
+  { id: 'fvg-port',      label: 'FVG Port' },
 ]
 
 export function Dashboard({ strategies, totalEstDaily, dailyTarget, byStrategy, combined }: Props) {
@@ -218,7 +219,7 @@ export function Dashboard({ strategies, totalEstDaily, dailyTarget, byStrategy, 
 
         {/* Footer */}
         <footer className="text-center text-xs text-slate-600 pb-6">
-          Target: +0.5%/day (£400/day) · Initial capital: £80,000 · {strategies.length} strategies live
+          Target: +0.5%/day (£400/day) · Initial capital: £80,000 · {strategies.length} strategies · 13 whitelist combos
         </footer>
       </main>
     </div>

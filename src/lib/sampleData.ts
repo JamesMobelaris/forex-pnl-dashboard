@@ -14,7 +14,7 @@ function dt(date: string, hour: number, minute = 0): string {
 }
 
 export const RAW_TRADES: Trade[] = [
-  // ─── MARCH 2026 ─────────────────────────────────────────────────────────────────────
+  // ─── MARCH 2026 ─────────────────────────────────────────────────────────────────────────────
   // Week 1 (Mar 3–7)
   { id: makeId(1),  strategy: 'london-orb-v3', symbol: 'GBPJPY', direction: 'LONG',  entryTime: dt('2026-03-03', 8, 5),  exitTime: dt('2026-03-03', 10, 20), entryPrice: 195.42, exitPrice: 196.15, lots: 0.5, pnl: 290,  pnlPct: 0.36,  commission: 5 },
   { id: makeId(2),  strategy: 'london-orb-v3', symbol: 'EURJPY', direction: 'SHORT', entryTime: dt('2026-03-03', 8, 10), exitTime: dt('2026-03-03', 10, 0),  entryPrice: 162.30, exitPrice: 161.60, lots: 0.5, pnl: 248,  pnlPct: 0.31,  commission: 5 },
@@ -73,7 +73,7 @@ export const RAW_TRADES: Trade[] = [
   { id: makeId(47), strategy: 'london-orb-v3', symbol: 'GBPJPY', direction: 'SHORT', entryTime: dt('2026-03-31', 8, 5),  exitTime: dt('2026-03-31', 10, 35), entryPrice: 197.20, exitPrice: 196.50, lots: 0.5, pnl: 250,  pnlPct: 0.31,  commission: 5 },
   { id: makeId(48), strategy: 'london-orb-v3', symbol: 'EURJPY', direction: 'SHORT', entryTime: dt('2026-03-31', 8, 8),  exitTime: dt('2026-03-31', 10, 0),  entryPrice: 163.50, exitPrice: 162.90, lots: 0.5, pnl: 210,  pnlPct: 0.26,  commission: 5 },
 
-  // ─── APRIL 2026 ────────────────────────────────────────────────────────────────────
+  // ─── APRIL 2026 ──────────────────────────────────────────────────────────────────────────
   // Week 1 (Apr 1–4)
   { id: makeId(49), strategy: 'london-orb-v3', symbol: 'GBPJPY', direction: 'LONG',  entryTime: dt('2026-04-01', 8, 5),  exitTime: dt('2026-04-01', 10, 25), entryPrice: 196.55, exitPrice: 197.70, lots: 0.5, pnl: 410,  pnlPct: 0.51,  commission: 5 },
   { id: makeId(50), strategy: 'london-orb-v3', symbol: 'USDJPY', direction: 'SHORT', entryTime: dt('2026-04-01', 8, 0),  exitTime: dt('2026-04-01', 9, 50),  entryPrice: 149.60, exitPrice: 148.95, lots: 0.5, pnl: 230,  pnlPct: 0.29,  commission: 5 },
@@ -127,4 +127,35 @@ export const RAW_TRADES: Trade[] = [
   { id: makeId(92), strategy: 'london-orb-v3', symbol: 'USDJPY', direction: 'LONG',  entryTime: dt('2026-04-21', 8, 0),  exitTime: dt('2026-04-21', 10, 20), entryPrice: 148.80, exitPrice: 149.65, lots: 0.5, pnl: 305,  pnlPct: 0.38,  commission: 5 },
   { id: makeId(93), strategy: 'asian-orb',     symbol: 'CHFJPY', direction: 'SHORT', entryTime: dt('2026-04-21', 1, 0),  exitTime: dt('2026-04-21', 3, 20),  entryPrice: 168.10, exitPrice: 167.50, lots: 0.2, pnl: 72,   pnlPct: 0.09,  commission: 2 },
   { id: makeId(94), strategy: 'ttm-squeeze',   symbol: 'EURUSD', direction: 'SHORT', entryTime: dt('2026-04-21', 9, 0),  exitTime: dt('2026-04-21', 15, 0),  entryPrice: 1.0870, exitPrice: 1.0810, lots: 0.2, pnl: 96,   pnlPct: 0.12,  commission: 2 },
+
+  // ─── LONDON ORB — NEW PAIRS (CHFJPY · CADJPY · USDCHF) ────────────────────────────────────
+  { id: makeId(95),  strategy: 'london-orb-v3', symbol: 'CHFJPY', direction: 'LONG',  entryTime: dt('2026-03-04', 8, 5),  exitTime: dt('2026-03-04', 10, 30), entryPrice: 172.30, exitPrice: 173.50, lots: 0.4, pnl: 310,  pnlPct: 0.39,  commission: 4 },
+  { id: makeId(96),  strategy: 'london-orb-v3', symbol: 'CADJPY', direction: 'LONG',  entryTime: dt('2026-03-04', 8, 8),  exitTime: dt('2026-03-04', 10, 15), entryPrice: 109.40, exitPrice: 110.20, lots: 0.4, pnl: 200,  pnlPct: 0.25,  commission: 4 },
+  { id: makeId(97),  strategy: 'london-orb-v3', symbol: 'USDCHF', direction: 'SHORT', entryTime: dt('2026-03-05', 8, 5),  exitTime: dt('2026-03-05', 9, 50),  entryPrice: 0.9045, exitPrice: 0.9010, lots: 0.3, pnl: 116,  pnlPct: 0.14,  commission: 3 },
+  { id: makeId(98),  strategy: 'london-orb-v3', symbol: 'CHFJPY', direction: 'SHORT', entryTime: dt('2026-03-06', 8, 3),  exitTime: dt('2026-03-06', 9, 40),  entryPrice: 173.80, exitPrice: 173.30, lots: 0.4, pnl: 126,  pnlPct: 0.16,  commission: 4 },
+  { id: makeId(99),  strategy: 'london-orb-v3', symbol: 'CADJPY', direction: 'SHORT', entryTime: dt('2026-03-10', 8, 5),  exitTime: dt('2026-03-10', 9, 30),  entryPrice: 110.50, exitPrice: 110.10, lots: 0.4, pnl: 100,  pnlPct: 0.13,  commission: 4 },
+  { id: makeId(100), strategy: 'london-orb-v3', symbol: 'CHFJPY', direction: 'LONG',  entryTime: dt('2026-03-11', 8, 8),  exitTime: dt('2026-03-11', 10, 50), entryPrice: 172.80, exitPrice: 174.10, lots: 0.4, pnl: 329,  pnlPct: 0.41,  commission: 4 },
+  { id: makeId(101), strategy: 'london-orb-v3', symbol: 'USDCHF', direction: 'LONG',  entryTime: dt('2026-03-12', 8, 5),  exitTime: dt('2026-03-12', 9, 20),  entryPrice: 0.8990, exitPrice: 0.8960, lots: 0.3, pnl: -96,  pnlPct: -0.12, commission: 3 },
+  { id: makeId(102), strategy: 'london-orb-v3', symbol: 'CADJPY', direction: 'LONG',  entryTime: dt('2026-03-18', 8, 5),  exitTime: dt('2026-03-18', 10, 40), entryPrice: 109.80, exitPrice: 110.90, lots: 0.4, pnl: 277,  pnlPct: 0.35,  commission: 4 },
+  { id: makeId(103), strategy: 'london-orb-v3', symbol: 'CHFJPY', direction: 'SHORT', entryTime: dt('2026-03-19', 8, 3),  exitTime: dt('2026-03-19', 10, 10), entryPrice: 174.50, exitPrice: 173.50, lots: 0.4, pnl: 252,  pnlPct: 0.32,  commission: 4 },
+  { id: makeId(104), strategy: 'london-orb-v3', symbol: 'USDCHF', direction: 'SHORT', entryTime: dt('2026-03-25', 8, 5),  exitTime: dt('2026-03-25', 9, 45),  entryPrice: 0.9060, exitPrice: 0.9025, lots: 0.3, pnl: 116,  pnlPct: 0.14,  commission: 3 },
+  { id: makeId(105), strategy: 'london-orb-v3', symbol: 'CHFJPY', direction: 'LONG',  entryTime: dt('2026-04-07', 8, 5),  exitTime: dt('2026-04-07', 10, 30), entryPrice: 173.20, exitPrice: 174.40, lots: 0.4, pnl: 303,  pnlPct: 0.38,  commission: 4 },
+  { id: makeId(106), strategy: 'london-orb-v3', symbol: 'CADJPY', direction: 'LONG',  entryTime: dt('2026-04-07', 8, 8),  exitTime: dt('2026-04-07', 10, 0),  entryPrice: 110.10, exitPrice: 110.90, lots: 0.4, pnl: 200,  pnlPct: 0.25,  commission: 4 },
+  { id: makeId(107), strategy: 'london-orb-v3', symbol: 'USDCHF', direction: 'SHORT', entryTime: dt('2026-04-08', 8, 5),  exitTime: dt('2026-04-08', 9, 30),  entryPrice: 0.9080, exitPrice: 0.9050, lots: 0.3, pnl: 99,   pnlPct: 0.12,  commission: 3 },
+  { id: makeId(108), strategy: 'london-orb-v3', symbol: 'CHFJPY', direction: 'SHORT', entryTime: dt('2026-04-14', 8, 5),  exitTime: dt('2026-04-14', 10, 20), entryPrice: 175.10, exitPrice: 173.90, lots: 0.4, pnl: 303,  pnlPct: 0.38,  commission: 4 },
+  { id: makeId(109), strategy: 'london-orb-v3', symbol: 'CADJPY', direction: 'SHORT', entryTime: dt('2026-04-14', 8, 8),  exitTime: dt('2026-04-14', 9, 50),  entryPrice: 111.30, exitPrice: 110.80, lots: 0.4, pnl: 126,  pnlPct: 0.16,  commission: 4 },
+  { id: makeId(110), strategy: 'london-orb-v3', symbol: 'USDCHF', direction: 'LONG',  entryTime: dt('2026-04-15', 8, 5),  exitTime: dt('2026-04-15', 9, 20),  entryPrice: 0.9030, exitPrice: 0.9000, lots: 0.3, pnl: -96,  pnlPct: -0.12, commission: 3 },
+  { id: makeId(111), strategy: 'london-orb-v3', symbol: 'CHFJPY', direction: 'LONG',  entryTime: dt('2026-04-21', 8, 5),  exitTime: dt('2026-04-21', 10, 50), entryPrice: 173.50, exitPrice: 174.80, lots: 0.4, pnl: 329,  pnlPct: 0.41,  commission: 4 },
+  { id: makeId(112), strategy: 'london-orb-v3', symbol: 'CADJPY', direction: 'LONG',  entryTime: dt('2026-04-21', 8, 8),  exitTime: dt('2026-04-21', 10, 30), entryPrice: 110.50, exitPrice: 111.30, lots: 0.4, pnl: 200,  pnlPct: 0.25,  commission: 4 },
+
+  // ─── FVG PORT v1 (GBPUSD — pilot) ────────────────────────────────────────────────────
+  { id: makeId(113), strategy: 'fvg-port', symbol: 'GBPUSD', direction: 'LONG',  entryTime: dt('2026-03-05', 9, 30), exitTime: dt('2026-03-05', 13, 0),  entryPrice: 1.2645, exitPrice: 1.2720, lots: 0.3, pnl: 188,  pnlPct: 0.23,  commission: 3 },
+  { id: makeId(114), strategy: 'fvg-port', symbol: 'GBPUSD', direction: 'SHORT', entryTime: dt('2026-03-12', 9, 15), exitTime: dt('2026-03-12', 12, 30), entryPrice: 1.2780, exitPrice: 1.2710, lots: 0.3, pnl: 175,  pnlPct: 0.22,  commission: 3 },
+  { id: makeId(115), strategy: 'fvg-port', symbol: 'GBPUSD', direction: 'LONG',  entryTime: dt('2026-03-18', 9, 45), exitTime: dt('2026-03-18', 11, 30), entryPrice: 1.2690, exitPrice: 1.2650, lots: 0.3, pnl: -100, pnlPct: -0.13, commission: 3 },
+  { id: makeId(116), strategy: 'fvg-port', symbol: 'GBPUSD', direction: 'LONG',  entryTime: dt('2026-03-25', 8, 55), exitTime: dt('2026-03-25', 14, 0),  entryPrice: 1.2610, exitPrice: 1.2720, lots: 0.3, pnl: 275,  pnlPct: 0.34,  commission: 3 },
+  { id: makeId(117), strategy: 'fvg-port', symbol: 'GBPUSD', direction: 'SHORT', entryTime: dt('2026-04-03', 9, 30), exitTime: dt('2026-04-03', 12, 0),  entryPrice: 1.2840, exitPrice: 1.2780, lots: 0.3, pnl: 150,  pnlPct: 0.19,  commission: 3 },
+  { id: makeId(118), strategy: 'fvg-port', symbol: 'GBPUSD', direction: 'LONG',  entryTime: dt('2026-04-08', 9, 15), exitTime: dt('2026-04-08', 10, 45), entryPrice: 1.2750, exitPrice: 1.2710, lots: 0.3, pnl: -100, pnlPct: -0.13, commission: 3 },
+  { id: makeId(119), strategy: 'fvg-port', symbol: 'GBPUSD', direction: 'SHORT', entryTime: dt('2026-04-10', 9, 30), exitTime: dt('2026-04-10', 15, 0),  entryPrice: 1.2810, exitPrice: 1.2690, lots: 0.3, pnl: 300,  pnlPct: 0.38,  commission: 3 },
+  { id: makeId(120), strategy: 'fvg-port', symbol: 'GBPUSD', direction: 'LONG',  entryTime: dt('2026-04-15', 9, 0),  exitTime: dt('2026-04-15', 14, 30), entryPrice: 1.2680, exitPrice: 1.2760, lots: 0.3, pnl: 200,  pnlPct: 0.25,  commission: 3 },
+  { id: makeId(121), strategy: 'fvg-port', symbol: 'GBPUSD', direction: 'LONG',  entryTime: dt('2026-04-21', 9, 15), exitTime: dt('2026-04-21', 13, 0),  entryPrice: 1.2720, exitPrice: 1.2800, lots: 0.3, pnl: 200,  pnlPct: 0.25,  commission: 3 },
 ]

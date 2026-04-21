@@ -1,4 +1,4 @@
-export type StrategyId = 'london-orb-v3' | 'asian-orb' | 'ttm-squeeze'
+export type StrategyId = 'london-orb-v3' | 'asian-orb' | 'ttm-squeeze' | 'fvg-port'
 
 export interface Trade {
   id: string

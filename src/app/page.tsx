@@ -26,7 +26,7 @@ function buildStrategyData(trades: typeof RAW_TRADES) {
 export default function Home() {
   const combined = buildStrategyData(RAW_TRADES)
 
-  const strategyIds: StrategyId[] = ['london-orb-v3', 'asian-orb', 'ttm-squeeze']
+  const strategyIds: StrategyId[] = ['london-orb-v3', 'asian-orb', 'ttm-squeeze', 'fvg-port']
   const byStrategy = Object.fromEntries(
     strategyIds.map((id) => [
       id,
