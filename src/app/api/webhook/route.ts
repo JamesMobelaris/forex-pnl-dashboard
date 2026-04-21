@@ -1,25 +1,26 @@
 /**
  * PineConnector webhook endpoint.
- * PineConnector sends trade signals in this format:
+ *
+ * JSON payload (recommended):
+ *   { "strategy": "london-orb-v3", "symbol": "GBPJPY", "action": "buy", "price": 199.10, ... }
+ *
+ * Plain text (legacy PineConnector format):
  *   license_id,command,symbol,risk,sl,tp
- * e.g.:  "12345,buy,CADJPY,1,50,100"
  *
- * For full trade close events it sends:
- *   license_id,closelong,CADJPY  (or closeshort)
- *
- * This endpoint receives the raw signal and logs it.
- * In production, you'd persist to a DB (e.g. PlanetScale, Supabase, or a JSON file).
+ * GET /api/webhook?strategy=london-orb-v3  — filter by strategy
+ * GET /api/webhook                          — all signals
  */
 
 import { NextRequest, NextResponse } from 'next/server'
+import { insertSignal, listSignals } from '@/lib/db'
 
 export const dynamic = 'force-dynamic'
 
 interface PineConnectorPayload {
+  strategy?: string
   id?: string
   passphrase?: string
   timestamp?: string
-  // trade fields
   action?: 'buy' | 'sell' | 'closelong' | 'closeshort'
   symbol?: string
   price?: number
@@ -27,12 +28,8 @@ interface PineConnectorPayload {
   sl?: number
   tp?: number
   pnl?: number
-  // raw string form
   raw?: string
 }
-
-// In-memory store (resets on restart; swap for DB in production)
-const tradeLog: (PineConnectorPayload & { receivedAt: string })[] = []
 
 export async function POST(req: NextRequest) {
   try {
@@ -42,15 +39,14 @@ export async function POST(req: NextRequest) {
     if (contentType.includes('application/json')) {
       payload = await req.json()
     } else {
-      // PineConnector may send as plain text
       const text = await req.text()
       payload = { raw: text }
     }
 
     const entry = { ...payload, receivedAt: new Date().toISOString() }
-    tradeLog.push(entry)
+    await insertSignal(entry as Record<string, unknown>)
 
-    console.log('[webhook] PineConnector signal received:', entry)
+    console.log('[webhook] signal received:', entry)
 
     return NextResponse.json({ ok: true, received: entry }, { status: 200 })
   } catch (err) {
@@ -59,6 +55,13 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET() {
-  return NextResponse.json({ signals: tradeLog, count: tradeLog.length })
+export async function GET(req: NextRequest) {
+  try {
+    const strategy = req.nextUrl.searchParams.get('strategy') ?? undefined
+    const signals = await listSignals(strategy)
+    return NextResponse.json({ signals, count: signals.length })
+  } catch (err) {
+    console.error('[webhook] Error fetching signals:', err)
+    return NextResponse.json({ signals: [], count: 0, error: 'DB unavailable' })
+  }
 }
